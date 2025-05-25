@@ -21,15 +21,8 @@ func (ind *Index) Labels(file *MediaFile) (labels classify.Labels) {
 	var thumbnails []string
 
 	// The thumbnail size may need to be adjusted to use other models.
-	if file.Square() {
-		// Only one thumbnail is required for square images.
-		sizes = []thumb.Name{thumb.Tile224}
-		thumbnails = make([]string, 0, 1)
-	} else {
-		// Use three thumbnails otherwise (center, left, right).
-		sizes = []thumb.Name{thumb.Tile224, thumb.Left224, thumb.Right224}
-		thumbnails = make([]string, 0, 3)
-	}
+	sizes = []thumb.Name{thumb.Fit4096}
+	thumbnails = make([]string, 0, 1) // 容量设为 1
 
 	// Get thumbnail filenames for the selected sizes.
 	for _, size := range sizes {

@@ -287,6 +287,8 @@ func (c *Config) Propagate() {
 	vision.ServiceKey = c.VisionKey()
 	vision.DownloadUrl = c.DownloadUrl()
 
+	vision.NasnetModel.Service.Uri = c.settings.AIServer.LabelUri
+
 	// Set allowed path in download package.
 	download.AllowedPaths = []string{
 		c.SidecarPath(),

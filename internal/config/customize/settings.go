@@ -28,6 +28,7 @@ type Settings struct {
 	Download  DownloadSettings `json:"download" yaml:"Download"`
 	Albums    AlbumsSettings   `json:"albums" yaml:"Albums"`
 	Templates TemplateSettings `json:"templates" yaml:"Templates"`
+	AIServer  AIServerSettings `json:"aiServer" yaml:"AIServer"`
 }
 
 // NewDefaultSettings creates a new default Settings instance.
@@ -120,6 +121,9 @@ func NewSettings(theme, language, timeZone string) *Settings {
 		Download: NewDownloadSettings(),
 		Templates: TemplateSettings{
 			Default: "index.gohtml",
+		},
+		AIServer: AIServerSettings{
+			LabelUri: "",
 		},
 	}
 }

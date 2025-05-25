@@ -7,11 +7,13 @@ import (
 // Default computer vision model configuration.
 var (
 	NasnetModel = &Model{
-		Type:       ModelTypeLabels,
-		Name:       "NASNet",
-		Version:    "Mobile",
-		Resolution: 224,
-		Tags:       []string{"photoprism"},
+		Type: ModelTypeLabels,
+		Service: Service{
+			Uri:            "",
+			FileScheme:     scheme.Data,
+			RequestFormat:  ApiFormatImages,
+			ResponseFormat: ApiFormatVision,
+		},
 	}
 	NsfwModel = &Model{
 		Type:       ModelTypeNsfw,
